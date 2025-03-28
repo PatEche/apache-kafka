@@ -1,34 +1,51 @@
-# APACHE KAFKA
+# 📌 Apache Kafka - Mensajería Asíncrona para Microservicios
 
-Apache Kafka es un servicio de mensajeria asincrono para microservicios que proporciona un bus de mensajes escalable, distribuido y altamente resiliente.
+Apache Kafka es un servicio de mensajería asíncrona diseñado para microservicios, proporcionando un bus de mensajes escalable, distribuido y altamente resiliente.
 
-### Implementacion basica de apache kafka 
+---
 
-1- Crear el archivo dockerfile para poder implementar los contenedores.
+## 🚀 Implementación Básica de Apache Kafka
 
-2- Luego ejecutar el siguiente comando para levantar los contenedores.
+### 🛠️ 1. Crear el archivo `Dockerfile`
+Para implementar los contenedores, primero es necesario crear el archivo `Dockerfile`.
 
+### ▶️ 2. Levantar los contenedores
+Ejecuta el siguiente comando para iniciar los contenedores:
+
+```sh
  docker-compose up -d
+```
 
-3- Crear topic
+### 📌 3. Crear un Topic
+#### 🔹 3.1 Ingresar al contenedor de Kafka
+Ejecuta el siguiente comando:
 
-3.1 Ingresamos al contenedor con el siguiente comando.
+```sh
+docker exec -it kafka bash
+```
 
- docker exec -it kafka bash 
+#### 🔹 3.2 Crear un topic
+Dentro del contenedor, ejecuta:
 
-3.2 Creamos el topic.
-
+```sh
 kafka-topics --bootstrap-server kafka:9092 --create --topic primer-topic
+```
 
-4- Producer 
+### ✉️ 4. Enviar Mensajes con Producer
+#### 🔹 4.1 Crear un mensaje
+Ejecuta el siguiente comando para enviar un mensaje al topic:
 
-4.1 Creamos el primer mensaje con el siguiente comando.
-
+```sh
 kafka-console-producer --bootstrap-server kafka:9092 --topic primer-topic
+```
 
-5- Consumer
+### 📥 5. Consumir Mensajes con Consumer
+#### 🔹 5.1 Leer mensajes desde el Consumer
+Ejecuta el siguiente comando para recibir los mensajes desde el topic:
 
-5.1 Consumimos el mensaje desde el consumer.
-
+```sh
 kafka-console-consumer --bootstrap-server kafka:9092 --topic primer-topic --from-beginning
+```
+
+---
 
